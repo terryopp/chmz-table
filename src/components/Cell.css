@@ -1,0 +1,11 @@
+.cell-input {
+    border:0px solid;
+    background-color:whitesmoke;
+    outline: 0;
+}
+.cell-input:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border:0px solid
+  }
