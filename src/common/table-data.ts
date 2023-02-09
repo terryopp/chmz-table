@@ -1,4 +1,4 @@
-const SHOW_FIRST_COL_WITH_ROW_ID = false
+const SHOW_FIRST_COL_WITH_ROW_ID = true
 
 const ROWS_AMOUNT = 2000
 const COLS_AMOUNT = 200

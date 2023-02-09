@@ -8,8 +8,8 @@ function Cell(props) {
         setValue(e.target.value)
     }
   return (
-    <div>
-      <input type='text' spellCheck={false} className='cell-input' value={value} onChange={handleChange}/>
+    <div className='cell'>
+      <textarea value={value} spellCheck={false} className='cell-input'  onChange={handleChange}> {value} </textarea>
     </div>
   )
 }

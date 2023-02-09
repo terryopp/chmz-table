@@ -2,3 +2,10 @@
     width: 100vw;
     height: 100vh;
 }
+
+.BaseTable__header-cell {
+    border-right:1px solid black;
+}
+.BaseTable__row-cell {
+    border-right:1px solid black;
+}
