@@ -1,4 +1,30 @@
 .container {
     width: 100vw;
-    height: 100vh;
+    height: 85vh;
 }
+
+.BaseTable__header-cell {
+    border-right:1px solid black;
+}
+.BaseTable__row-cell {
+    border-right:1px solid black;
+}
+.BaseTable::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .BaseTable::-webkit-scrollbar-track {
+   
+    background-color: #f9f9fd;
+  }
+  
+  .BaseTable::-webkit-scrollbar-thumb {
+    background-color: #f2bf93;
+    background-image: -webkit-linear-gradient(45deg,rgba(255, 255, 255, .25) 25%,
+                      transparent 25%,
+                      transparent 50%,
+                      rgba(255, 255, 255, .25) 50%,
+                      rgba(255, 255, 255, .25) 75%,
+                      transparent 75%,
+                      transparent);
+  }

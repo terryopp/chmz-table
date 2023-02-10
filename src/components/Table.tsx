@@ -1,13 +1,12 @@
 import './Table.css'
 import BaseTable, { AutoResizer } from 'react-base-table'
 import 'react-base-table/styles.css'
-import { getContent, getColumns } from '../common/table-data';
 import Cell from './Cell';
 
-function App() {
-  const columns = getColumns()
-  const data = getContent()
-  
+
+function Table(props) {
+  let columns = props.columns
+  let data = props.data
   return (
     <div className="container">
       
@@ -31,4 +30,4 @@ function App() {
   )
 }
 
-export default App
+export default Table
