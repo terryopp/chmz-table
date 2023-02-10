@@ -1,14 +1,12 @@
 import './Table.css'
 import BaseTable, { AutoResizer } from 'react-base-table'
 import 'react-base-table/styles.css'
-import { getContent, getColumns } from '../common/table-data';
-import {useState} from 'react';
 import Cell from './Cell';
 
 
 function Table(props) {
   let columns = props.columns
-  let data=props.data
+  let data = props.data
   return (
     <div className="container">
       

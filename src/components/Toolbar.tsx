@@ -1,9 +1,10 @@
 import React from 'react'
 import './Toolbar.css'
-import { getContent, getColumns } from '../common/table-data';
+import { getContent } from '../common/table-data';
 function Toolbar(props) {
   function addData() {
-    
+    const lastIndex = Number(props.data[props.data.length - 1].id.replace('row-', ''))
+    if (lastIndex) props.data.push(...getContent(lastIndex, 1000))
   }
   return (
     <div className='toolbar'>

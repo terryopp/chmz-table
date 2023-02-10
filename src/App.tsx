@@ -4,8 +4,8 @@ import Toolbar from './components/Toolbar'
 import { getContent, getColumns } from './common/table-data';
 import {useState} from 'react';
 function App() {
-  const columns = getColumns()
-  const [data, setData] = useState(() => getContent())
+  const columns = getColumns(200)
+  const [data, setData] = useState(() => getContent(0, 2000))
   
   return (
     <div className='app'>
