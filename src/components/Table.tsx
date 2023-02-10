@@ -4,9 +4,11 @@ import 'react-base-table/styles.css'
 import Cell from './Cell';
 
 
+
 function Table(props) {
   let columns = props.columns
   let data = props.data
+  
   return (
     <div className="container">
       

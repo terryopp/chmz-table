@@ -7,6 +7,7 @@ function App() {
   const columns = getColumns(200)
   const [data, setData] = useState(() => getContent(0, 2000))
   
+  
   return (
     <div className='app'>
       <div className='toolbar-box'>
