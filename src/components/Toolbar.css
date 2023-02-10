@@ -1,0 +1,10 @@
+.toolbar {
+    width:100vw;
+    height:10vh;
+    margin:0;
+    right: 10px; /* Расстояние от правого края окна браузера */
+    top: 20px; /* Расстояние сверху */
+    padding: 10px; /* Поля вокруг текста */ 
+    background: #ffe; /* Цвет фона */ 
+    border: 1px solid #333; /* Параметры рамки */
+}
