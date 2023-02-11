@@ -19,6 +19,7 @@ function Cell(props) {
           row.firstColOffset = `Row ${index + 1}`
         })
       }
+      window.scrollBy(0,5)
     }
     let cell;
     switch(true) {
