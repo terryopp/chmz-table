@@ -19,14 +19,14 @@ function Toolbar(props) {
     if (end<start) return;
     if (start<1) return;
     props.data.splice(start-1,end-start+1)
-    props.data.map((row) => {
-      row.id = 'row'+'-'+(+(row.id.split('-')[1])-end-start+1)
-      row.firstColOffset = 'Row'+' '+(+(row.firstColOffset.split(' ')[1])-end-start+1)
+    props.data.map((row, index) => {
+      row.id = `row-${index + 1}`
+      row.firstColOffset = `Row ${index + 1}`
     })
     window.scrollBy(0,5)
-    console.log(props.data)
+    
   }
-  console.log(start,end)
+ 
   return (
     <div className='toolbar'>
       <div className='addButtons'>
