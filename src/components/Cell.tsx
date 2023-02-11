@@ -10,10 +10,14 @@ function Cell(props) {
         setValue(e.target.value)
     }
     function handleDelete() {
-      const data = props.container.props.data
+      const data: any[] = props.container.props.data
       const rowIndex = data.findIndex(row => row === props.rowData)
       if (typeof rowIndex === 'number') {
         data.splice(rowIndex, 1)
+        data.map((row, index) => {
+          row.id = `row-${index + 1}`
+          row.firstColOffset = `Row ${index + 1}`
+        })
       }
     }
     let cell;
