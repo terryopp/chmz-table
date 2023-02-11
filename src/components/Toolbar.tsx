@@ -6,8 +6,8 @@ function Toolbar(props) {
    const [start,setStart] = useState(1)
    const [end,setEnd] = useState(1)
   function addData(value) {
-    const lastIndex = Number(props.data[props.data.length - 1].id.replace('row-', ''))
-    if (lastIndex) props.data.push(...getContent(lastIndex, value))
+    // const lastIndex = Number(props.data[props.data.length - 1].id.replace('row-', ''))
+    props.data.push(...getContent(props.data.length, value))
   }
   function addStart(e) {
     setStart(e.target.value)
@@ -36,11 +36,11 @@ function Toolbar(props) {
       <div className='delButtons'></div>
       <button className='add-data' onClick={deleteData}> Удалить строки в интервале  </button>
       <div className='rangeInputs'>
-         <input type='text' className='rangeDel' id='startRange' value={start} onChange={addStart}>
+         <input type='number' className='rangeDel' id='startRange' value={start} onChange={addStart}>
          </input>
          <label htmlFor='startRange'>от</label>
          <br/>
-         <input type='text' className='rangeDel' id='endRange' value={end} onChange={addEnd}>
+         <input type='number' className='rangeDel' id='endRange' value={end} onChange={addEnd}>
          </input>
          <label htmlFor='endRange'>до</label>
       </div>
