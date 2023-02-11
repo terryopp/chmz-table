@@ -1,0 +1,13 @@
+.select-cell {
+    width:150px;
+    height:49px;
+}
+
+.cell {
+    margin-left:-5px;
+    width:150px;
+    height:49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

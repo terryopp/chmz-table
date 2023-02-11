@@ -8,7 +8,7 @@ import Combocell from './Combocell';
 function Table(props) {
   let columns = props.columns
   let data = props.data
-  columns[2].cellRenderer = Combocell;
+  columns[3].cellRenderer = (props) => <Combocell props={props}/>
   return (
     <div className="container">
       
