@@ -1,7 +1,7 @@
 .toolbar {
     width:100vw;
     height:10vh;
-    
+    display:flex;
     
     background: #ffe; /* Цвет фона */ 
     border: 1px solid #333; /* Параметры рамки */
@@ -11,7 +11,13 @@
     margin:5px;
 }
 
-
+.rangeDel {
+  width:35px;
+  margin-top:5px;
+}
+.rangeInputs {
+  display:inline-block;
+}
 
 /* CSS */
 .add-data {
