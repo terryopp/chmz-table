@@ -1,3 +1,4 @@
+import { useRef, useEffect, useState } from 'react';
 import './Table.css'
 import BaseTable, { AutoResizer } from 'react-base-table'
 import 'react-base-table/styles.css'
@@ -11,6 +12,14 @@ function Table(props) {
   let columns = props.columns
   let data = props.data
   columns[3].cellRenderer = (comboprops) => <Combocell props={comboprops}/>
+  const tableRef = useRef<BaseTable>(null)
+  console.log(tableRef)
+  useEffect(() => {
+    if (tableRef.current) {
+      console.log('forceUpdate')
+      tableRef.current.forceUpdateTable()
+    }
+  }, [data.length])
   return (
     <div className="container">
       
@@ -23,6 +32,7 @@ function Table(props) {
             components={{
               TableCell: Cell
             }}
+            ref={tableRef}
             data={data}
             setData={setData}
             fixed
