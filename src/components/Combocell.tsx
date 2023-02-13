@@ -12,7 +12,7 @@ function Combocell(props) {
     
   return (
     <div className='cell'>
-      <select className='select-cell'  onChange={handleChange}>
+      <select id={props.props.column.key+'+'+props.props.rowData.id}className='select-cell'  onChange={handleChange}>
         <option value='1'>{startValue}</option>
         <option value='2'>2</option>
         <option value='3'>3</option>
