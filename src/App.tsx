@@ -32,6 +32,7 @@ function App() {
     if (first==second) return;
     let temparray=data.slice(0)
     let temp=temparray[first-1];
+    console.log(temparray)
     temparray[first-1]=temparray[second-1]
     temparray[second-1]=temp
     temparray.map((row, index) => {
@@ -47,7 +48,7 @@ function App() {
       <Toolbar data={data} setData={onChangeData} deleteFunc={deleteData} swapFunc={changeData} addData={moreData}/>
       </div>
       <div className='table'>
-      <Table columns={columns} data={data}/>
+      <Table columns={columns} data={data} changeData={onChangeData} />
       </div>
     </div>
   )

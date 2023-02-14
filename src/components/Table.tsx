@@ -5,10 +5,10 @@ import 'react-base-table/styles.css'
 import Cell from './Cell';
 import Combocell from './Combocell';
 import Toolbar from './Toolbar';
-function Table({data,columns}) {
+function Table({data,columns,changeData}) {
   const [render,reRender] = useState(true)
   columns.map((column) => {
-    column.cellRenderer = (comboprops) => <Cell props={comboprops}/>
+    column.cellRenderer = (comboprops) => <Cell props={comboprops} changeData={changeData}/>
   }) 
   columns[3].cellRenderer = (comboprops) => <Combocell props={comboprops}/>
   useEffect(() => {
