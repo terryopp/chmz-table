@@ -5,38 +5,28 @@ import 'react-base-table/styles.css'
 import Cell from './Cell';
 import Combocell from './Combocell';
 import Toolbar from './Toolbar';
-
-
-function Table(props) {
-  let setData=props.setData
-  let columns = props.columns
-  let data = props.data
+function Table({data,columns}) {
+  const [render,reRender] = useState(true)
+  columns.map((column) => {
+    column.cellRenderer = (comboprops) => <Cell props={comboprops}/>
+  }) 
   columns[3].cellRenderer = (comboprops) => <Combocell props={comboprops}/>
-  const tableRef = useRef<BaseTable>(null)
-  console.log(tableRef)
   useEffect(() => {
-    if (tableRef.current) {
-      console.log('forceUpdate')
-      tableRef.current.forceUpdateTable()
+      reRender(!render)
     }
-  }, [data.length])
+  , [data])
+  console.log(render)
   return (
     <div className="container">
-      
       <AutoResizer>
         {({ width, height }) => (
           <BaseTable
             width={width}
             height={height}
             columns={columns}
-            components={{
-              TableCell: Cell
-            }}
-            ref={tableRef}
             data={data}
-            setData={setData}
+            ignoreFunctionInColumnCompare={false}
             fixed
-            
           />
         )}
         
