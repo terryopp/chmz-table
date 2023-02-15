@@ -1,8 +1,7 @@
 const SHOW_FIRST_COL_WITH_ROW_ID = true
 export const FIRST_COL_ID = 'firstColOffset'
 
-const SHOW_OPTIONS_COL = true
-export const OPTIONS_COL_ID = 'optionsColOffset'
+
 
 let colsAmount = 0
 
@@ -10,9 +9,9 @@ const getIndexKeyName = (index: number) => `key-${index}`;
 
 const getContentCell = (index: number) => {
   const indexedArray = Array.from({ length: colsAmount }, (_, key) => getIndexKeyName(key))
-  let initialAccumulator: any = { id: `row-${index + 1}` }
-  if (SHOW_FIRST_COL_WITH_ROW_ID) initialAccumulator = {...initialAccumulator, [FIRST_COL_ID]: `Row ${index + 1}` }
-  if (SHOW_OPTIONS_COL) initialAccumulator = {...initialAccumulator, [OPTIONS_COL_ID]: OPTIONS_COL_ID }
+  let initialAccumulator: any = { id: `row-${Math.random().toString(36).slice(2, 12)}` }
+  if (SHOW_FIRST_COL_WITH_ROW_ID) initialAccumulator = {...initialAccumulator, [FIRST_COL_ID]: 'Row with id' }
+
   return indexedArray.reduce((accumulator, value) => (
       { ...accumulator, [value]: Math.random().toString(36).slice(2, 12) }),
       initialAccumulator
@@ -32,9 +31,6 @@ export const getColumns = (amount: number) => {
     const firstCol = { title: '', key: FIRST_COL_ID, dataKey: FIRST_COL_ID, width: 100, frozen: 'left' }
     cols.unshift(firstCol)
   }
-  if (SHOW_OPTIONS_COL) {
-    const firstCol = { title: '', key: OPTIONS_COL_ID, dataKey: OPTIONS_COL_ID, width: 100, frozen: 'right' }
-    cols.unshift(firstCol)
-  }
+  
   return cols
 }

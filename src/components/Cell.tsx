@@ -2,35 +2,22 @@ import React from 'react'
 import {useState} from 'react'
 import { FIRST_COL_ID, OPTIONS_COL_ID } from '../common/table-data';
 import './Cell.css'
-function Cell(props) {
+import Combocell from './Combocell';
+function Cell({props,changeData}) {
+    if (props.columnIndex==2 && props.rowIndex==0) console.log(props)
     const [value,setValue] = useState(props.cellData);
-    const [column] = useState(props.column);
-    // console.log(props)
+    const column = props.column;
     function handleChange(e) {
         setValue(e.target.value)
-    }
-    function handleDelete() {
-      const data: any[] = props.container.props.data
-      const rowIndex = data.findIndex(row => row === props.rowData)
-      if (typeof rowIndex === 'number') {
-        data.splice(rowIndex, 1)
-        data.map((row, index) => {
-          row.id = `row-${index + 1}`
-          row.firstColOffset = `Row ${index + 1}`
-        })
-      }
-      window.scrollBy(0,5)
+        
     }
     let cell;
     switch(true) {
       case column.dataKey === FIRST_COL_ID: {
-        cell = <p className='cell-text'>{value}</p>;
+        cell =  <p className='cell-text'>{`Row ${props.rowIndex + 1}`}</p>;
         break;
       }
-      case column.dataKey === OPTIONS_COL_ID: {
-        cell = <button onClick={handleDelete}>удалить</button>;
-        break;
-      }
+      
       default: {
         cell = <textarea value={value} spellCheck={false} className='cell-input'  onChange={handleChange}> {value} </textarea>;
       }
