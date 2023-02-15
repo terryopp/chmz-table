@@ -9,9 +9,9 @@ const getIndexKeyName = (index: number) => `key-${index}`;
 
 const getContentCell = (index: number) => {
   const indexedArray = Array.from({ length: colsAmount }, (_, key) => getIndexKeyName(key))
-  let initialAccumulator: any = { id: `row-${index + 1}` }
-  if (SHOW_FIRST_COL_WITH_ROW_ID) initialAccumulator = {...initialAccumulator, [FIRST_COL_ID]: `Row ${index + 1}` }
-  
+  let initialAccumulator: any = { id: `row-${Math.random().toString(36).slice(2, 12)}` }
+  if (SHOW_FIRST_COL_WITH_ROW_ID) initialAccumulator = {...initialAccumulator, [FIRST_COL_ID]: 'Row with id' }
+
   return indexedArray.reduce((accumulator, value) => (
       { ...accumulator, [value]: Math.random().toString(36).slice(2, 12) }),
       initialAccumulator

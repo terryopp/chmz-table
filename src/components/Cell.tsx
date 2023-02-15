@@ -14,8 +14,7 @@ function Cell({props,changeData}) {
     let cell;
     switch(true) {
       case column.dataKey === FIRST_COL_ID: {
-        
-        cell =  <p className='cell-text'>{value}</p>;
+        cell =  <p className='cell-text'>{`Row ${props.rowIndex + 1}`}</p>;
         break;
       }
       

@@ -17,30 +17,16 @@ function App() {
   function deleteData(end,start) {
     if (end<start) return;
     if (start<1) return
-    let temp=data.slice(0)
-    temp.splice(start-1,end-start+1)
-    temp.map((row, index) => {
-      row.id = `row-${index + 1}`
-      row.firstColOffset = `Row ${index + 1}`
-    })
-    
+    let temp=data.filter((_, index) => !(start-1 <= index && index < end))
     setData(temp)
-    
-    window.scrollBy(0,5)
   }
   function changeData(first,second) {
     if (first==second) return;
     let temparray=data.slice(0)
     let temp=temparray[first-1];
-    console.log(temparray)
     temparray[first-1]=temparray[second-1]
     temparray[second-1]=temp
-    temparray.map((row, index) => {
-      row.id = `row-${index + 1}`
-      row.firstColOffset = `Row ${index + 1}`
-    })
     setData(temparray)
-    window.scrollBy(0,5)
   }
   return (
     <div className='app'>
