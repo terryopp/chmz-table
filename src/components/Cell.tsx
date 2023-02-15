@@ -4,7 +4,6 @@ import { FIRST_COL_ID, OPTIONS_COL_ID } from '../common/table-data';
 import './Cell.css'
 import Combocell from './Combocell';
 function Cell({props,changeData}) {
-    if (props.columnIndex==2 && props.rowIndex==0) console.log(props)
     const [value,setValue] = useState(props.cellData);
     const column = props.column;
     function handleChange(e) {

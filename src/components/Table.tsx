@@ -15,7 +15,6 @@ function Table({data,columns,changeData}) {
       reRender(!render)
     }
   , [data])
-  console.log(render)
   return (
     <div className="container">
       <AutoResizer>
