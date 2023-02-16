@@ -28,10 +28,21 @@ function App() {
     temparray[second-1]=temp
     setData(temparray)
   }
+  function partUpdate() {
+    let temp = data.slice(0);
+    for (let i=0; i<temp.length; i=i+10) {
+      Object.keys(temp[i]).forEach((key) => {
+        if (key!='id' && key!='firstColOffset' && key!='key') {
+          temp[i][key] = Math.random().toString(36).slice(2, 12)
+        }
+      })
+    }
+    setData(temp)
+  }
   return (
     <div className='app'>
       <div className='toolbar-box'>
-      <Toolbar data={data} setData={onChangeData} deleteFunc={deleteData} swapFunc={changeData} addData={moreData}/>
+      <Toolbar data={data} setData={onChangeData} deleteFunc={deleteData} swapFunc={changeData} addData={moreData} partUpdate={partUpdate}/>
       </div>
       <div className='table'>
       <Table columns={columns} data={data} changeData={onChangeData} />
