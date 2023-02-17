@@ -1,24 +1,35 @@
 import React from 'react'
 import './Toolbar.css'
-import { getContent } from '../common/table-data';
+import { Cell } from '../common/table-data';
 import {useState} from 'react'
-function Toolbar({data, setData, deleteFunc, swapFunc, addData, partUpdate}) {
+
+type ManageFunction = (a: number, b: number) => void
+interface Props { 
+  data: Cell[]
+  setData: (value: Cell[]) => void
+  deleteFunc: ManageFunction
+  swapFunc: ManageFunction
+  addData: (value: number) => void
+  partUpdate: () => void
+}
+
+function Toolbar({data, setData, deleteFunc, swapFunc, addData, partUpdate}: Props) {
    
    const [start,setStart] = useState(1)
    const [end,setEnd] = useState(1)
    const [first,setFirst] = useState(1)
    const [second,setSecond] = useState(2)
-  function addStart(e) {
-    setStart(e.target.value)
+  function addStart(e: React.ChangeEvent<HTMLInputElement>) {
+    setStart(Number(e.target.value))
   }
-  function addEnd(e) {
-    setEnd(e.target.value)
+  function addEnd(e: React.ChangeEvent<HTMLInputElement>) {
+    setEnd(Number(e.target.value))
   }
-  function addFirst(e) {
-    setFirst(e.target.value)
+  function addFirst(e: React.ChangeEvent<HTMLInputElement>) {
+    setFirst(Number(e.target.value))
   }
-  function addSecond(e) {
-    setSecond(e.target.value)
+  function addSecond(e: React.ChangeEvent<HTMLInputElement>) {
+    setSecond(Number(e.target.value))
   }
   return (
     <div className='toolbar'>

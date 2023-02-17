@@ -1,10 +1,11 @@
 import React from 'react'
+import { TableCellProps } from '../common/table-data';
 import {useState} from 'react'
 import './Combocell.css'
-function Combocell({props}) {
+function Combocell({props}: { props: TableCellProps }) {
     const startValue=props.cellData
     const [value,setValue] = useState(startValue)    
-    function handleChange(e) {
+    function handleChange(e: React.ChangeEvent<HTMLSelectElement>) {
         setValue(e.target.value)
     }
   return (
