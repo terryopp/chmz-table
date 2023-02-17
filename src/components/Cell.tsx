@@ -18,7 +18,7 @@ function Cell({props,changeData}) {
       }
       
       default: {
-        cell = <textarea value={value} spellCheck={false} className='cell-input'  onChange={handleChange}> {value} </textarea>;
+        cell = <textarea value={value}   spellCheck={false} className='cell-input'  onChange={handleChange}> {value} </textarea>;
       }
     }
   return (

@@ -31,11 +31,7 @@ function App() {
   function partUpdate() {
     let temp = data.slice(0);
     for (let i=0; i<temp.length; i=i+10) {
-      Object.keys(temp[i]).forEach((key) => {
-        if (key!='id' && key!='firstColOffset' && key!='key') {
-          temp[i][key] = Math.random().toString(36).slice(2, 12)
-        }
-      })
+      temp[i]=getContent(i,1)[0]
     }
     setData(temp)
   }
