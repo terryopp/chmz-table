@@ -31,11 +31,7 @@ function App() {
   function partUpdate() {
     let temp = data.slice(0);
     for (let i=0; i<temp.length; i=i+10) {
-      (Object.keys(temp[i]) as (keyof Cell)[]).forEach((key: keyof Cell) => {
-        if (key !== 'id' && key !== FIRST_COL_ID) {
-          temp[i][key] = randomSymbolsValue()
-        }
-      })
+      temp[i]=getContent(1)[0]
     }
     setData(temp)
   }
