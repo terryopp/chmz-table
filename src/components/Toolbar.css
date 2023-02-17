@@ -2,18 +2,19 @@
     width:100vw;
     height:10vh;
     display:flex;
-    
+    align-items: center;
+    justify-content:center;
     background: #ffe; /* Цвет фона */ 
     border: 1px solid #333; /* Параметры рамки */
 }
 .add-data {
     height:30px;
-    margin:5px;
+    
 }
 
 .rangeDel {
   width:35px;
-  margin-top:5px;
+  height:3vh;
 }
 .rangeInputs {
   display:inline-block;
@@ -35,7 +36,7 @@
   font-weight: 600;
   justify-content: center;
   line-height: 1.25;
-  margin: 5px;
+  
   min-height: 3rem;
   padding: calc(.875rem - 1px) calc(1.5rem - 1px);
   position: relative;

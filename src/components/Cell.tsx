@@ -1,12 +1,12 @@
-import React from 'react'
-import {useState} from 'react'
-import { FIRST_COL_ID, OPTIONS_COL_ID } from '../common/table-data';
+import React, {useState} from 'react'
+import { FIRST_COL_ID, TableCellProps } from '../common/table-data';
 import './Cell.css'
-import Combocell from './Combocell';
-function Cell({props,changeData}) {
+
+function Cell({props}: { props: TableCellProps}) {
+
     const [value,setValue] = useState(props.cellData);
     const column = props.column;
-    function handleChange(e) {
+    function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
         setValue(e.target.value)
         
     }
@@ -18,7 +18,7 @@ function Cell({props,changeData}) {
       }
       
       default: {
-        cell = <textarea value={value} spellCheck={false} className='cell-input'  onChange={handleChange}> {value} </textarea>;
+        cell = <textarea value={value}   spellCheck={false} className='cell-input'  onChange={handleChange}> {value} </textarea>;
       }
     }
   return (

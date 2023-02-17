@@ -1,26 +1,26 @@
 import './App.css'
 import Table from './components/Table'
 import Toolbar from './components/Toolbar'
-import { getContent, getColumns } from './common/table-data';
-import {useState,useEffect} from 'react';
+import { getContent, getColumns, Cell, FIRST_COL_ID, randomSymbolsValue } from './common/table-data';
+import { useState } from 'react';
 
 
 function App() {
   const [columns, _] = useState(() => getColumns(200))
-  const [data, setData] = useState(() => getContent(0, 2000))
-  function moreData(value) {
-    setData([...data, ...getContent(data.length, value)])
+  const [data, setData] = useState(() => getContent(2000))
+  function moreData(value: number) {
+    setData([...data, ...getContent(value)])
   }
-  function onChangeData(value) {
+  function onChangeData(value: Cell[]) {
     setData(value);
   }
-  function deleteData(end,start) {
+  function deleteData(end: number, start: number) {
     if (end<start) return;
     if (start<1) return
     let temp=data.filter((_, index) => !(start-1 <= index && index < end))
     setData(temp)
   }
-  function changeData(first,second) {
+  function changeData(first: number, second: number) {
     if (first==second) return;
     let temparray=data.slice(0)
     let temp=temparray[first-1];
@@ -28,13 +28,20 @@ function App() {
     temparray[second-1]=temp
     setData(temparray)
   }
+  function partUpdate() {
+    let temp = data.slice(0);
+    for (let i=0; i<temp.length; i=i+10) {
+      temp[i]=getContent(1)[0]
+    }
+    setData(temp)
+  }
   return (
     <div className='app'>
       <div className='toolbar-box'>
-      <Toolbar data={data} setData={onChangeData} deleteFunc={deleteData} swapFunc={changeData} addData={moreData}/>
+      <Toolbar data={data} setData={onChangeData} deleteFunc={deleteData} swapFunc={changeData} addData={moreData} partUpdate={partUpdate}/>
       </div>
       <div className='table'>
-      <Table columns={columns} data={data} changeData={onChangeData} />
+      <Table columns={columns} data={data} />
       </div>
     </div>
   )
